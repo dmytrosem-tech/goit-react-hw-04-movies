@@ -1,0 +1,12 @@
+.navigation {
+  padding: 30px 50px;
+  border-bottom: 1px solid gray;
+}
+.nav__link {
+  margin-right: 15px;
+  color: black;
+}
+
+.nav__activeLink {
+  color: blue;
+}

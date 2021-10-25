@@ -11,7 +11,7 @@ export default function Navigation() {
         className={nav__link}
         activeClassName={nav__activeLink}
       >
-        Main
+        Home
       </NavLink>
       <NavLink
         to="/movies"

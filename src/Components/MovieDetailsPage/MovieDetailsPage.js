@@ -26,7 +26,7 @@ export default function MovieDetailsPage() {
           <p>User score {movie.vote_average}</p>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
-          {/* <img src={movie.backdrop_path}/> */}
+          <img src={movie.backdrop_path} />
           <h3>Genres</h3>
           <ul>
             {movie.genres &&

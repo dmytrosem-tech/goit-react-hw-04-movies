@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { popularMoviesAPI } from "../../Services/moviesAPI";
+import { popularMoviesAPI } from "../../services/moviesAPI";
 
 // const status = {
 //   IDLE: "idle",

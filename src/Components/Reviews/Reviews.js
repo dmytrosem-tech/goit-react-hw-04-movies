@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { reviewsAPI } from "../../services/moviesAPI";
+import styles from "./Reviews.module.css";
 
 export default function Cast() {
   const { moviesId } = useParams();
@@ -12,13 +13,15 @@ export default function Cast() {
       .catch((e) => console.log(e));
   }, []);
 
+  const { reviewsSt__txt, reviewsSt__title, reviewsSt__item, reviewsSt } =
+    styles;
   return (
-    <ul>
+    <ul className={reviewsSt}>
       {reviews &&
         reviews.results.map((review) => (
-          <li key={review.id}>
-            <h3>Author name: {review.author}</h3>
-            <p>{review.content}</p>
+          <li key={review.id} className={reviewsSt__item}>
+            <h3 className={reviewsSt__title}>Author name: {review.author}</h3>
+            <p className={reviewsSt__txt}>{review.content}</p>
           </li>
         ))}
     </ul>

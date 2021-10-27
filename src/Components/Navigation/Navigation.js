@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { FaHouseDamage, FaVideo } from "react-icons/fa";
 import styles from "./Navigation.module.css";
 
 export default function Navigation() {
@@ -11,6 +12,7 @@ export default function Navigation() {
         className={nav__link}
         activeClassName={nav__activeLink}
       >
+        <FaHouseDamage style={{ marginRight: 8 }} />
         Home
       </NavLink>
       <NavLink
@@ -18,6 +20,7 @@ export default function Navigation() {
         className={nav__link}
         activeClassName={nav__activeLink}
       >
+        <FaVideo style={{ marginRight: 8 }} />
         Movies
       </NavLink>
     </nav>

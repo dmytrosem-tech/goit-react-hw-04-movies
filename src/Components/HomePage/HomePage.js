@@ -25,7 +25,13 @@ export default function HomePage({ title }) {
       .catch((e) => console.log(e));
   }, []);
 
-  const { homePage, homePage__title, homePage__list, homePage__item } = styles;
+  const {
+    homePage,
+    homePage__title,
+    homePage__list,
+    homePage__link,
+    homePage__item,
+  } = styles;
   return (
     <div className={homePage}>
       <h1 className={homePage__title}>{title}</h1>
@@ -33,7 +39,7 @@ export default function HomePage({ title }) {
         {movies &&
           movies.map((movie) => (
             <li key={movie.id} className={homePage__item}>
-              <Link to={`/movies/${movie.id}`}>
+              <Link className={homePage__link} to={`/movies/${movie.id}`}>
                 {movie.name || movie.original_title}
               </Link>
             </li>

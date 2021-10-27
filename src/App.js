@@ -1,33 +1,36 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import Container from "./Components/Container";
-import NotFoundView from "./views/NotFound";
 import Navigation from "./Components/Navigation";
-import HomePage from "./Components/HomePage";
-import MoviesPage from "./Components/MoviesPage";
-import MovieDetailsPage from "./Components/MovieDetailsPage";
+
+const NotFoundView = lazy(() => import("./views/NotFound"));
+const HomePage = lazy(() => import("./Components/HomePage"));
+const MoviesPage = lazy(() => import("./Components/MoviesPage"));
+const MovieDetailsPage = lazy(() => import("./Components/MovieDetailsPage"));
 
 export default function App() {
   return (
     <Container>
       <Navigation />
+      <Suspense fallback="Do not be so fast :)">
+        <Switch>
+          <Route exact path="/">
+            <HomePage title="TRENDING TODAY" />
+          </Route>
 
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
+          <Route path="/movies" exact>
+            <MoviesPage />
+          </Route>
 
-        <Route path="/movies" exact>
-          <MoviesPage />
-        </Route>
+          <Route path="/movies/:movieId">
+            <MovieDetailsPage />
+          </Route>
 
-        <Route path="/movies/:movieId">
-          <MovieDetailsPage />
-        </Route>
-
-        <Route>
-          <NotFoundView />
-        </Route>
-      </Switch>
+          <Route>
+            <NotFoundView />
+          </Route>
+        </Switch>
+      </Suspense>
     </Container>
   );
 }

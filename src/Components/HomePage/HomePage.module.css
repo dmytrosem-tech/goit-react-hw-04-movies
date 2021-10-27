@@ -1,0 +1,17 @@
+.homePage {
+  background-color: rgb(255, 255, 255);
+  padding: 30px 50px;
+}
+
+.homePage__title {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+/* .homePage__list {
+} */
+
+.homePage__item {
+  margin-bottom: 5px;
+  font-size: 16px;
+}

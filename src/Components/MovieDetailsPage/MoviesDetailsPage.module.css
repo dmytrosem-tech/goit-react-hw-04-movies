@@ -1,0 +1,50 @@
+.movieSt {
+  display: flex;
+  background-color: rgb(215, 232, 233);
+  padding: 20px 20px;
+}
+.movieST__btn {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0px 1px 1px rgba(60, 167, 238, 0.12),
+    0px 4px 4px rgba(47, 96, 233, 0.06), 1px 4px 6px rgba(52, 95, 238, 0.16);
+}
+.movieST__btn:hover {
+  background-color: rgb(235, 204, 214);
+  border-radius: 2px solid;
+  outline: rgb(226, 219, 219);
+}
+.movieSt__descr1 {
+  margin-right: 20px;
+}
+.movieSt__descr2 {
+  padding: 30px 20px 20px 20px;
+}
+.movieSt__title {
+}
+.movieSt__score {
+}
+.movieSt__overviewTitle {
+}
+.movieSt__overviewText {
+}
+.movieSt__poster {
+}
+.movieSt__genresTitle {
+}
+.movieSt__genresList {
+}
+.movieSt__genresIte {
+}
+.movieSt__aditional {
+}
+.movieSt__aditionalList {
+}
+.movieSt__aditionalItem {
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { popularMoviesAPI } from "../../services/moviesAPI";
+import styles from "./HomePage.module.css";
 
 // const status = {
 //   IDLE: "idle",
@@ -11,7 +12,7 @@ import { popularMoviesAPI } from "../../services/moviesAPI";
 
 // const { IDLE, PENDING, REJECTED, RESOLVED } = status;
 
-export default function HomePage() {
+export default function HomePage({ title }) {
   // const {url} = useRouteMatch();
   const [movies, setMovies] = useState(null);
   // const [status, setStatus] = useState(IDLE);
@@ -24,17 +25,21 @@ export default function HomePage() {
       .catch((e) => console.log(e));
   }, []);
 
+  const { homePage, homePage__title, homePage__list, homePage__item } = styles;
   return (
-    <>
-      {movies &&
-        movies.map((movie) => (
-          <li key={movie.id} className="item">
-            <Link to={`/movies/${movie.id}`}>
-              {movie.name || movie.original_title}
-            </Link>
-          </li>
-        ))}
-    </>
+    <div className={homePage}>
+      <h1 className={homePage__title}>{title}</h1>
+      <ul className={homePage__list}>
+        {movies &&
+          movies.map((movie) => (
+            <li key={movie.id} className={homePage__item}>
+              <Link to={`/movies/${movie.id}`}>
+                {movie.name || movie.original_title}
+              </Link>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 }
 

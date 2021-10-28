@@ -1,9 +1,15 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useParams, Route, NavLink, useHistory } from "react-router-dom";
+import {
+  useParams,
+  Route,
+  NavLink,
+  useLocation,
+  useHistory,
+} from "react-router-dom";
 import { moreInfoAPI } from "../../services/moviesAPI";
-import ArrowUp from "../ArrowUp/ArrowUp";
-import default_poster from "../../images/avatarko_anonim.jpg";
+// import ArrowUp from "../ArrowUp/ArrowUp";
+import default_poster from "../../images/avatarko_anonim_w300.jpg";
 import styles from "./MoviesDetailsPage.module.css";
 
 const Cast = lazy(() => import("../Cast/Cast" /* webpackChunkName: "Cast" */));
@@ -14,6 +20,7 @@ const Reviews = lazy(() =>
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
   const history = useHistory();
 
   useEffect(() => {
@@ -21,6 +28,10 @@ export default function MovieDetailsPage() {
       .then(setMovie)
       .catch((e) => console.log(e));
   }, [movieId]);
+
+  const onBack = () => {
+    history.push(location?.state?.from ?? "/");
+  };
 
   const {
     movieSt,
@@ -46,13 +57,9 @@ export default function MovieDetailsPage() {
     <div>
       {movie && (
         <div className={movieSt}>
-          <button
-            type="button"
-            className={movieST__btn}
-            onClick={() => history.push("/")}
-          >
+          <button type="button" className={movieST__btn} onClick={onBack}>
             <AiOutlineArrowLeft style={{ marginRight: 8 }} />
-            Go back
+            {location?.state?.label ?? "Go back"}
           </button>
           <div className={movieSt__descr1}>
             <img

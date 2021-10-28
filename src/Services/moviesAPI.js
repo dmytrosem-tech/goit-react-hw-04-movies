@@ -26,3 +26,11 @@ export function reviewsAPI(movie_id) {
     .get(`${baseApi}movie/${movie_id}/reviews?api_key=${myApiKey}&per_page=5`)
     .then((r) => r.data);
 }
+
+export function moreMoviesFromUserQuery(query) {
+  return axios
+    .get(
+      `${baseApi}search/movie?api_key=${myApiKey}&language=en-US&query=${query}&page=1&include_adult=false`
+    )
+    .then((r) => r.data.results);
+}

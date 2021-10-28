@@ -17,13 +17,16 @@ export default function Cast() {
     styles;
   return (
     <ul className={reviewsSt}>
-      {reviews &&
+      {reviews && reviews !== [] ? (
         reviews.results.map((review) => (
           <li key={review.id} className={reviewsSt__item}>
             <h3 className={reviewsSt__title}>Author name: {review.author}</h3>
             <p className={reviewsSt__txt}>{review.content}</p>
           </li>
-        ))}
+        ))
+      ) : (
+        <p>lol</p>
+      )}
     </ul>
   );
 }

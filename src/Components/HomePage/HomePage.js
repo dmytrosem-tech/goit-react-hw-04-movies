@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { popularMoviesAPI } from "../../services/moviesAPI";
 import styles from "./HomePage.module.css";
 
@@ -15,6 +15,7 @@ import styles from "./HomePage.module.css";
 export default function HomePage({ title }) {
   // const {url} = useRouteMatch();
   const [movies, setMovies] = useState(null);
+  const location = useLocation();
   // const [status, setStatus] = useState(IDLE);
 
   useEffect(() => {
@@ -39,7 +40,13 @@ export default function HomePage({ title }) {
         {movies &&
           movies.map((movie) => (
             <li key={movie.id} className={homePage__item}>
-              <Link className={homePage__link} to={`/movies/${movie.id}`}>
+              <Link
+                className={homePage__link}
+                to={{
+                  pathname: `/movies/${movie.id}`,
+                  state: { from: location, label: "Back to popular" },
+                }}
+              >
                 {movie.name || movie.original_title}
               </Link>
             </li>

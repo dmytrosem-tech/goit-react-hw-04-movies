@@ -5,10 +5,11 @@
   padding: 10px 20px;
 }
 .movieST__btn {
-  width: 100px;
+  width: 150px;
   height: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 10px;
   border: 1px solid grey;
   border-radius: 3px;
@@ -18,7 +19,6 @@
 }
 .movieST__btn:hover {
   background-color: rgb(235, 204, 214);
-  border-radius: 2px solid;
   outline: rgb(226, 219, 219);
 }
 .movieSt__descr1 {

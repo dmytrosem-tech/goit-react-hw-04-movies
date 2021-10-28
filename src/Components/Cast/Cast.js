@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { castAPI } from "../../services/moviesAPI";
-import default_poster from "../../images/avatarko_anonim.jpg";
+import default_poster from "../../images/avatarko_anonim_w300.jpg";
 import styles from "./Cast.module.css";
 
 export default function Cast() {

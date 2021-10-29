@@ -21,6 +21,7 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
+  // location.search = location.state.from.search;
   const history = useHistory();
 
   useEffect(() => {
@@ -29,10 +30,17 @@ export default function MovieDetailsPage() {
       .catch((e) => console.log(e));
   }, [movieId]);
 
+  const pushSearch = () => {
+    history.push({
+      ...location,
+      search: `query=1`,
+    });
+  };
   const onBack = () => {
+    // history.push((location.state.from.search = "1"));
     history.push(location?.state?.from ?? "/");
   };
-  console.log(location.state.from);
+  console.log(location);
 
   const {
     movieSt,
@@ -94,7 +102,15 @@ export default function MovieDetailsPage() {
             <ul className={movieSt__aditionalList}>
               <li className={item}>
                 <NavLink
-                  to={`/movies/${movie.id}/cast`}
+                  to={{
+                    pathname: `/movies/${movie.id}/cast`,
+                    state: {
+                      from: "/movies",
+                      label: "Back to movies from cast",
+                      // search: location.state.from.search,
+                    },
+                  }}
+                  onClick={pushSearch}
                   className={movieSt__aditionalLink}
                   activeClassName={movieSt__activeLink}
                 >
@@ -103,7 +119,13 @@ export default function MovieDetailsPage() {
               </li>
               <li className={item}>
                 <NavLink
-                  to={`/movies/${movie.id}/reviews`}
+                  to={{
+                    pathname: `/movies/${movie.id}/reviews`,
+                    state: {
+                      from: "/movies",
+                      label: "Back to movies from reviews",
+                    },
+                  }}
                   className={movieSt__aditionalLink}
                   activeClassName={movieSt__activeLink}
                 >

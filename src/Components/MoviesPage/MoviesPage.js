@@ -33,6 +33,8 @@ export default function MoviesPage() {
     });
   };
 
+  // console.log(query);
+  // console.log(urlQuery);
   useEffect(() => {
     if (urlQuery)
       moreMoviesFromUserQuery(urlQuery)
@@ -51,6 +53,9 @@ export default function MoviesPage() {
     moviesSt__link,
   } = styles;
 
+  // useLocation(location.state.from: {`/movies/${movie.id}`})
+
+  // console.log(location);
   return (
     <div className={moviesPage}>
       <form className={form} onSubmit={handleSubmit}>
@@ -74,10 +79,15 @@ export default function MoviesPage() {
             movies.map((movie) => (
               <li key={movie.id} className={moviesST__item}>
                 <Link
+                  query={urlQuery}
                   className={moviesSt__link}
                   to={{
                     pathname: `/movies/${movie.id}`,
-                    state: { from: location, label: "Back to movies" },
+                    state: {
+                      from: location,
+                      label: "Back to movies",
+                      search: location.search,
+                    },
                   }}
                 >
                   {movie.name || movie.original_title}

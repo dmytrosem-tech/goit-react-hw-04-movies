@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { popularMoviesAPI } from "../../services/moviesAPI";
@@ -54,6 +55,10 @@ export default function HomePage({ title }) {
     </div>
   );
 }
+
+HomePage.propTypes = {
+  title: PropTypes.string,
+};
 
 // if (status === IDLE) {
 //   return <p>Hm</p>;

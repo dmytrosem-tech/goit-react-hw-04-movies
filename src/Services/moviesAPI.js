@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseApi = "https://api.themoviedb.org/3/";
 const myApiKey = "6aca5fd1f6430f3a2dc19eecc3571e5f";
-const paramsPopular = "trending/all/day?";
+const paramsPopular = "trending/movie/day?";
 const URLPopular = `${baseApi}${paramsPopular}api_key=${myApiKey}&language=en-US`;
 
 export function popularMoviesAPI() {

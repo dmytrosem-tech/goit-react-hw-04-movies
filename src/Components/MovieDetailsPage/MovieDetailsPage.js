@@ -40,7 +40,6 @@ export default function MovieDetailsPage() {
     // history.push((location.state.from.search = "1"));
     history.push(location?.state?.from ?? "/");
   };
-  console.log(location);
 
   const {
     movieSt,
@@ -105,7 +104,7 @@ export default function MovieDetailsPage() {
                   to={{
                     pathname: `/movies/${movie.id}/cast`,
                     state: {
-                      from: "/movies",
+                      from: history.location.state.from,
                       label: "Back to movies from cast",
                       // search: location.state.from.search,
                     },
@@ -122,7 +121,7 @@ export default function MovieDetailsPage() {
                   to={{
                     pathname: `/movies/${movie.id}/reviews`,
                     state: {
-                      from: "/movies",
+                      from: history.location.state.from,
                       label: "Back to movies from reviews",
                     },
                   }}

@@ -84,7 +84,9 @@ export default function MoviesPage() {
                   to={{
                     pathname: `/movies/${movie.id}`,
                     state: {
-                      from: location,
+                      from:
+                        `${history.location.pathname}` +
+                        `${history.location.search}`,
                       label: "Back to movies",
                       search: location.search,
                     },

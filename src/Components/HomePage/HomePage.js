@@ -21,7 +21,6 @@ export default function HomePage({ title }) {
   useEffect(() => {
     popularMoviesAPI()
       .then(setMovies)
-      // .then(console.log(movies))
       // .then(setStatus(RESOLVED))
       .catch((e) => console.log(e));
   }, []);

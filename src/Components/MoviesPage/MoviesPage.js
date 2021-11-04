@@ -21,6 +21,9 @@ export default function MoviesPage() {
       return alert("not so fast :)");
     }
     moreMoviesFromUserQuery(query)
+      // .then(r => {if(r.length === 0){
+      //   return console.log('lol');
+      // })}
       .then(setMovies)
       .catch((e) => console.log(e));
     setQuery("");
@@ -88,7 +91,6 @@ export default function MoviesPage() {
                         `${history.location.pathname}` +
                         `${history.location.search}`,
                       label: "Back to movies",
-                      search: location.search,
                     },
                   }}
                 >

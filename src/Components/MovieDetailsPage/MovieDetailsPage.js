@@ -37,7 +37,6 @@ export default function MovieDetailsPage() {
     });
   };
   const onBack = () => {
-    // history.push((location.state.from.search = "1"));
     history.push(location?.state?.from ?? "/");
   };
 
@@ -61,6 +60,7 @@ export default function MovieDetailsPage() {
     item,
   } = styles;
 
+  console.log(location);
   return (
     <div>
       {movie && (
@@ -106,7 +106,6 @@ export default function MovieDetailsPage() {
                     state: {
                       from: history.location.state.from,
                       label: "Back to movies from cast",
-                      // search: location.state.from.search,
                     },
                   }}
                   onClick={pushSearch}
@@ -143,6 +142,9 @@ export default function MovieDetailsPage() {
         <Route path="/movies/:moviesId/reviews">
           <Reviews />
         </Route>
+        {/* <Route path="/movies/:moviesId">
+          <h1>Non found</h1>
+        </Route> */}
       </Suspense>
     </div>
   );
